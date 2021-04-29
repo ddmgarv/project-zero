@@ -1,15 +1,6 @@
 import express from "express";
 import { graphqlHTTP } from "express-graphql";
-import {
-	GraphQLSchema,
-	GraphQLObjectType,
-	GraphQLString,
-	GraphQLList,
-	GraphQLInt,
-	GraphQLNonNull,
-	GraphQLBoolean,
-} from "graphql";
-import { UserFields } from "./GraphQL/fields";
+import { GraphQLObjectType } from "graphql";
 import dotenv from "dotenv";
 import "colors";
 
@@ -18,17 +9,6 @@ dotenv.config();
 const app = express();
 
 const port = process.env.PORT || 8080;
-
-const UserType: GraphQLObjectType = new GraphQLObjectType({
-	name: "User",
-	description: "This represents a User",
-	fields: () => ({
-		...UserFields,
-		resolve: () => {
-			console.log("Query to get users");
-		},
-	}),
-});
 
 // const RootQueryType: GraphQLObjectType = new GraphQLObjectType({
 // 	name: "Query",
