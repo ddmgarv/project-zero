@@ -6,3 +6,62 @@
 # ignore compiled files
 /project-zero-ui/public
 /project-zero-server/dist
+
+# dotenv environment variables file
+/project-zero-ui/.env
+/project-zero-server/.env
+
+# Logs
+/project-zero-ui/logs
+/project-zero-ui/*.log
+/project-zero-ui/npm-debug.log*
+/project-zero-ui/yarn-debug.log*
+/project-zero-ui/yarn-error.log*
+/project-zero-ui/firebase-debug.log*
+/project-zero-ui/firebase-debug.*.log*
+
+# Firebase cache
+/project-zero-ui/.firebase/
+
+# Firebase config
+
+# Uncomment this if you'd like others to create their own Firebase project.
+# For a team working on the same Firebase project(s), it is recommended to leave
+# it commented so all members can deploy to the same project(s) in .firebaserc.
+# .firebaserc
+
+# Runtime data
+/project-zero-ui/pids
+/project-zero-ui/*.pid
+/project-zero-ui/*.seed
+/project-zero-ui/*.pid.lock
+
+# nyc test coverage
+/project-zero-ui/.nyc_output
+
+# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+/project-zero-ui/.grunt
+
+# Bower dependency directory (https://bower.io/)
+/project-zero-ui/bower_components
+
+# node-waf configuration
+/project-zero-ui/.lock-wscript
+
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+/project-zero-ui/build/Release
+
+# Optional npm cache directory
+/project-zero-ui/.npm
+
+# Optional eslint cache
+/project-zero-ui/.eslintcache
+
+# Optional REPL history
+/project-zero-ui/.node_repl_history
+
+# Output of 'npm pack'
+/project-zero-ui/*.tgz
+
+# Yarn Integrity file
+/project-zero-ui/.yarn-integrity
