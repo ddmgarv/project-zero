@@ -1,0 +1,8 @@
+# ignore modules
+/node_modules
+/project-zero-ui/node_modules
+/project-zero-server/node_modules
+
+# ignore compiled files
+/project-zero-ui/public
+/project-zero-server/dist

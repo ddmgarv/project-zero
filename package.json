@@ -1,0 +1,23 @@
+{
+	"name": "project-zero-workspace",
+	"private": true,
+	"version": "1.0.0",
+	"description": "Project Zero Monorepo",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"server": "yarn workspace project-zero-server",
+		"ui": "yarn workspace project-zero-ui",
+		"clean": "rm -rf node_modules project-zero-server/node_modules project-zero-ui/node_modules && yarn cache clean"
+	},
+	"workspaces": [
+		"project-zero-server",
+		"project-zero-ui"
+	],
+	"keywords": [],
+	"author": "Gustavo Rojas (garv1998131@gmail.com)",
+	"license": "ISC",
+	"devDependencies": {
+		"typescript": "^4.2.4"
+	}
+}

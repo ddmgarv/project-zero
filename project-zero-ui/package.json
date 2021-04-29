@@ -1,0 +1,28 @@
+{
+	"name": "project-zero-ui",
+	"version": "1.0.0",
+	"description": "",
+	"main": "webpack.config.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "webpack serve --mode development --open --hot --port 3000",
+		"build": "webpack --mode production"
+	},
+	"keywords": [],
+	"author": "Gustavo Rojas (garv1998131@gmail.com)",
+	"license": "ISC",
+	"devDependencies": {
+		"webpack": "^5.35.1",
+		"webpack-cli": "^4.6.0",
+		"webpack-dev-server": "^3.11.2"
+	},
+	"dependencies": {
+		"@types/react": "^17.0.4",
+		"@types/react-dom": "^17.0.3",
+		"awesome-typescript-loader": "^5.2.1",
+		"html-webpack-plugin": "^5.3.1",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"tslib": "^2.2.0"
+	}
+}
