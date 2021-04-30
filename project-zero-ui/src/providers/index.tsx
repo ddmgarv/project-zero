@@ -1,7 +1,7 @@
 import React, { ComponentProps, FC } from "react";
 import UserProvider from "./UserProvider";
 
-const combineComponents = (components: FC[]): FC => {
+const combineProviders = (components: FC[]): FC => {
 	return components.reduce(
 		(AccumulatedComponents: FC, CurrentComponent: FC) => {
 			return ({ children }: ComponentProps<FC>): JSX.Element => {
@@ -16,4 +16,4 @@ const combineComponents = (components: FC[]): FC => {
 	);
 };
 
-export default combineComponents([UserProvider]);
+export default combineProviders([UserProvider]);
