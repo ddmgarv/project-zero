@@ -12,14 +12,18 @@
 	"author": "Gustavo Rojas (garv1998131@gmail.com)",
 	"license": "ISC",
 	"devDependencies": {
+		"@types/react": "^17.0.4",
+		"@types/react-dom": "^17.0.3",
+		"@types/react-router-dom": "^5.1.7",
+		"@types/styled-components": "^5.1.9",
+		"css-loader": "^5.2.4",
+		"file-loader": "^6.2.0",
+		"style-loader": "^2.0.0",
 		"webpack": "^5.35.1",
 		"webpack-cli": "^4.6.0",
 		"webpack-dev-server": "^3.11.2"
 	},
 	"dependencies": {
-		"@types/react": "^17.0.4",
-		"@types/react-dom": "^17.0.3",
-		"@types/react-router-dom": "^5.1.7",
 		"awesome-typescript-loader": "^5.2.1",
 		"html-webpack-plugin": "^5.3.1",
 		"react": "^17.0.2",

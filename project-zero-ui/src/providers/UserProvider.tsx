@@ -1,5 +1,5 @@
 import React, { useEffect, ReactElement, useState } from "react";
-import { User, UserContext } from "../contexts";
+import { User, UserContext } from "@/contexts";
 
 const UseProvider: React.FC = ({ children }) => {
 	// const [userData, setUserData] = useState<User | undefined>(undefined);

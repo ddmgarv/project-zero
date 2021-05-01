@@ -10,6 +10,9 @@ module.exports = {
 	},
 	resolve: {
 		extensions: [".ts", ".tsx", ".js"],
+		alias: {
+			"@": path.resolve(__dirname, "src"),
+		},
 	},
 	module: {
 		rules: [
@@ -18,6 +21,14 @@ module.exports = {
 				use: {
 					loader: "awesome-typescript-loader",
 				},
+			},
+			{
+				test: /\.css$/,
+				use: ["style-loader", "css-loader"],
+			},
+			{
+				test: /\.svg$/,
+				use: "file-loader",
 			},
 		],
 	},
