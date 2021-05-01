@@ -1,9 +1,12 @@
 import React from "react";
-// import { auth, createUserProfileDocument } from "@/firebase";
+// import Firebase { signInWithGoogle } from "@/firebase";
+
 import loginFields from "./fields";
 
 const Login = () => {
-	const handleSubmit = (): void => {};
+	const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>): void => {
+		e.preventDefault();
+	};
 
 	return (
 		<div>

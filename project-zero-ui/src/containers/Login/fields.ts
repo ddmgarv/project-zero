@@ -1,12 +1,3 @@
-export default [
-	{
-		id: "email",
-		name: "email",
-		type: "email",
-	},
-	{
-		id: "password",
-		name: "password",
-		type: "password",
-	},
-];
+import fieldsCreator from "@/utils/fieldsCreator";
+
+export default [fieldsCreator("email"), fieldsCreator("password")];

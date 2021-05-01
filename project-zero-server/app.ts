@@ -1,6 +1,7 @@
 import express from "express";
 import { graphqlHTTP } from "express-graphql";
-import { GraphQLObjectType } from "graphql";
+import { GraphQLInt, GraphQLList, GraphQLObjectType, GraphQLSchema } from "graphql";
+import { UserType } from "./GraphQL/types/userType";
 import dotenv from "dotenv";
 import "colors";
 
@@ -14,26 +15,15 @@ const port = process.env.PORT || 8080;
 // 	name: "Query",
 // 	description: "Root Query",
 // 	fields: () => ({
-// 		book: {
-// 			type: BookType,
-// 			description: "A Single Book",
+// 		user: {
+// 			type: UserType,
+// 			description: "A Single User",
 // 			args: {
 // 				id: { type: GraphQLInt },
 // 			},
-// 			resolve: (parent, args) => books.find((book) => book.id === args.id),
-// 		},
-// 		books: {
-// 			type: new GraphQLList(BookType),
-// 			description: "List of All Books",
-// 			resolve: () => books,
-// 		},
-// 		author: {
-// 			type: AuthorType,
-// 			description: "A Single Author",
-// 			args: {
-// 				id: { type: GraphQLInt },
+// 			resolve: (parent, args) => {
+// 				// authors.find((author) => author.id === args.id)
 // 			},
-// 			resolve: (parent, args) => authors.find((author) => author.id === args.id),
 // 		},
 // 		authors: {
 // 			type: new GraphQLList(AuthorType),
@@ -47,23 +37,6 @@ const port = process.env.PORT || 8080;
 // 	name: "Mutation",
 // 	description: "Root Mutation",
 // 	fields: () => ({
-// 		addBook: {
-// 			type: BookType,
-// 			description: "Add a book",
-// 			args: {
-// 				name: { type: GraphQLNonNull(GraphQLString) },
-// 				authorId: { type: GraphQLNonNull(GraphQLInt) },
-// 			},
-// 			resolve: (parent, args) => {
-// 				const book = {
-// 					id: books.length + 1,
-// 					name: args.name,
-// 					authorId: args.authorId,
-// 				};
-// 				books.push(book);
-// 				return book;
-// 			},
-// 		},
 // 		addAuthor: {
 // 			type: AuthorType,
 // 			description: "Add a Author",
@@ -87,12 +60,14 @@ const port = process.env.PORT || 8080;
 // 	mutation: RootMutationType,
 // });
 
-// app.use(
-// 	"/graphql",
-// 	graphqlHTTP({
-// 		schema,
-// 		graphiql: true,
-// 	})
-// );
+app.use("/", require("/firebase"));
+
+app.use(
+	"/graphql",
+	graphqlHTTP({
+		schema,
+		graphiql: true,
+	})
+);
 
 app.listen(port, () => console.log("Server running in port:".green, port));

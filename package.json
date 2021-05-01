@@ -20,5 +20,7 @@
 	"devDependencies": {
 		"typescript": "^4.2.4"
 	},
-	"dependencies": {}
+	"dependencies": {
+		"firebase": "^8.4.3"
+	}
 }
