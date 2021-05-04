@@ -1,3 +1,3 @@
 import fieldsCreator from "@/utils/fieldsCreator";
 
-export default [fieldsCreator("email"), fieldsCreator("password")];
+export default [{ ...fieldsCreator("email"), autoFocus: true }, fieldsCreator("password")];
