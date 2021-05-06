@@ -3,7 +3,7 @@ import { useHistory } from "react-router";
 import styled from "styled-components";
 import { ButtonPrimary, ButtonSecondary } from "@/components/buttons";
 import { TextField } from "@/components/inputs";
-import loginFields from "../fields";
+import signUpFields from "../fields";
 
 interface SignUpForm {
 	handleSubmit: (e: React.SyntheticEvent<HTMLFormElement>) => void;
@@ -15,7 +15,7 @@ const SignUpForm: React.FC<SignUpForm> = ({ handleSubmit, handleChange }) => {
 
 	return (
 		<Form onSubmit={handleSubmit}>
-			{loginFields.map((field) => (
+			{signUpFields.map((field) => (
 				<Container>
 					<TextField {...field} onChange={handleChange} />
 				</Container>
