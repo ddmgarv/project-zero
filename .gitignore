@@ -4,12 +4,12 @@
 /project-zero-server/node_modules
 
 # ignore compiled files
-/project-zero-ui/public
+/project-zero-ui/build
 /project-zero-server/dist
 
 # dotenv environment variables file
-/project-zero-ui/.env
-/project-zero-server/.env
+/project-zero-ui/*.env
+/project-zero-server/*.env
 
 # Logs
 /project-zero-ui/logs
