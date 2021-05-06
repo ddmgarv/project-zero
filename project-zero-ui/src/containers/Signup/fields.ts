@@ -12,4 +12,10 @@ export default [
 		placeholder: "Password",
 		type: "password",
 	},
+	{
+		id: "confirmPassword",
+		name: "confirmPassword",
+		placeholder: "Confirm Password",
+		type: "password",
+	},
 ];

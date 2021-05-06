@@ -9,19 +9,19 @@ interface PanelProps {
 
 const Panel: React.FC<PanelProps> = ({ children, title }) => {
 	return (
-		<Container>
+		<MainContainer>
 			<Content>
 				<Title>Project Zero</Title>
 				<SectionTitle>{title}</SectionTitle>
 				{children}
 			</Content>
-		</Container>
+		</MainContainer>
 	);
 };
 
 export default Panel;
 
-const Container = styled.main`
+const MainContainer = styled.main`
 	width: 100%;
 	height: 100vh;
 	display: flex;

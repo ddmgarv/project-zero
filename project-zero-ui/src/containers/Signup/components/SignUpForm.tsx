@@ -1,17 +1,18 @@
 import React from "react";
-import styled from "styled-components";
 import { useHistory } from "react-router";
+import styled from "styled-components";
 import { ButtonPrimary, ButtonSecondary } from "@/components/buttons";
 import { TextField } from "@/components/inputs";
 import loginFields from "../fields";
 
-interface LoginForm {
+interface SignUpForm {
 	handleSubmit: (e: React.SyntheticEvent<HTMLFormElement>) => void;
 	handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const LoginForm: React.FC<LoginForm> = ({ handleSubmit, handleChange }) => {
+const SignUpForm: React.FC<SignUpForm> = ({ handleSubmit, handleChange }) => {
 	const history = useHistory();
+
 	return (
 		<Form onSubmit={handleSubmit}>
 			{loginFields.map((field) => (
@@ -31,7 +32,7 @@ const LoginForm: React.FC<LoginForm> = ({ handleSubmit, handleChange }) => {
 	);
 };
 
-export default LoginForm;
+export default SignUpForm;
 
 const Form = styled.form`
 	width: 100%;

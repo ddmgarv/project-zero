@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Panel from "@/components/templates/panel";
-// import Firebase { signInWithGoogle } from "@/firebase";
+import Firebase from "@/firebase";
 import LoginForm from "./components/LoginForm";
 
 interface LoginData {
@@ -8,21 +8,35 @@ interface LoginData {
 	password: string;
 }
 
-const Login = () => {
-	const [loginData, setLoginData] = useState<LoginData>({
-		email: "",
-		password: "",
-	});
+const loginInitState = {
+	email: "",
+	password: "",
+};
 
-	const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>): void => {
+const Login: React.FC = () => {
+	const [loginData, setLoginData] = useState<LoginData>(loginInitState);
+
+	const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>): Promise<void> => {
 		e.preventDefault();
+		const { password, email } = loginData;
+		try {
+			await Firebase.auth.signInWithEmailAndPassword(email, password);
+			setLoginData(loginInitState);
+		} catch (error) {
+			console.error(error);
+			const errorCode = error.code;
+			const errorMessage = error.message;
+			if (errorCode === "auth/wrong-password") {
+				alert("Wrong password.");
+			} else {
+				alert(errorMessage);
+			}
+		}
 	};
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-		setLoginData({
-			...loginData,
-			[e.target.id]: e.target.value,
-		});
+		const { id, value } = e.target;
+		setLoginData({ ...loginData, [id]: value });
 	};
 
 	return (

@@ -18,6 +18,7 @@ class Firebase {
 	provider: firebase.auth.GoogleAuthProvider;
 	auth: firebase.auth.Auth;
 	firestore: firebase.firestore.Firestore;
+
 	static instance = new Firebase();
 
 	constructor() {
@@ -31,5 +32,8 @@ class Firebase {
 	}
 }
 
+const instance = Firebase.instance;
+
 export * from "./utils";
-export default Firebase.instance;
+
+export default instance;

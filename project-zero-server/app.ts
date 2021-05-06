@@ -60,14 +60,14 @@ const port = process.env.PORT || 8080;
 // 	mutation: RootMutationType,
 // });
 
-app.use("/", require("/firebase"));
+// app.use("/", require("/firebase"));
 
-app.use(
-	"/graphql",
-	graphqlHTTP({
-		schema,
-		graphiql: true,
-	})
-);
+// app.use(
+// 	"/graphql",
+// 	graphqlHTTP({
+// 		schema,
+// 		graphiql: true,
+// 	})
+// );
 
 app.listen(port, () => console.log("Server running in port:".green, port));
