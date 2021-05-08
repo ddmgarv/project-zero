@@ -23,6 +23,7 @@ const UserStatusType = new GraphQLObjectType({
 
 const UserFields = () => ({
 	id: { type: GraphQLNonNull(GraphQLString) },
+	email: { type: GraphQLNonNull(GraphQLString) },
 	data: { type: UserDataType },
 	status: { type: UserStatusType },
 	friends: { type: GraphQLList(UserType) },

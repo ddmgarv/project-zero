@@ -2,6 +2,7 @@ import { createContext } from "react";
 
 export interface User {
 	id: string;
+	email: string;
 	data: {
 		age: number;
 		direction: string;
@@ -19,6 +20,7 @@ export interface User {
 
 export const UserContext = createContext<User>({
 	id: "",
+	email: "",
 	data: {
 		age: 0,
 		direction: "",
