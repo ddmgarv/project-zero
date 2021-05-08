@@ -1,7 +1,7 @@
 import admin from "firebase-admin";
+import firebase from "firebase/app";
 import firebaseAdminCredentials from "@/config/firebaseAdminCredentials";
 import firebaseCredentials from "@/config/firebaseCredentials";
-import firebase from "firebase/app";
 import { SignUpCredentials } from "@/typescript/User";
 
 // Initialize Firebase
@@ -27,8 +27,7 @@ class Firebase {
 		try {
 			await this.auth.createUserWithEmailAndPassword(email, password);
 		} catch (err) {
-			console.log("EN EL REGISTER EL ERR");
-			console.log(err);
+			console.error(err);
 		}
 	}
 
@@ -37,7 +36,7 @@ class Firebase {
 			const ref = this.firestore.doc(path);
 			await ref.set(data, { merge: true });
 		} catch (err) {
-			console.log(err);
+			console.error(err);
 		}
 		return true;
 	}
@@ -46,20 +45,18 @@ class Firebase {
 		try {
 			await this.firestore.doc(path).update(data);
 		} catch (err) {
-			console.log(err);
+			console.error(err);
 		}
 	}
 
-	async getDocument(route: string) {
+	async getDocument(route: string): Promise<FirebaseFirestore.DocumentData | undefined | false> {
 		try {
-			let result = null;
 			const response = await this.firestore.doc(route).get();
 			if (!response.exists) {
-				result = false;
+				return false;
 			} else {
-				result = response.data();
+				return response.data();
 			}
-			return result;
 		} catch (err) {
 			console.error(err);
 		}

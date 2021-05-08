@@ -37,7 +37,18 @@ const RootMutationType: GraphQLObjectType = new GraphQLObjectType({
 				password: { type: GraphQLString },
 				confirmPassword: { type: GraphQLString },
 			},
-			resolve: (parent, args) => {},
+			resolve: async (parent, args) => {
+				const { email, password, confirmPassword } = args;
+				if (!email || !password) return "Email is empty.";
+				if (confirmPassword !== password) return "Passwords doesn't match.";
+				try {
+					await Firebase.createUser({ email, password });
+					return "User created";
+				} catch (error) {
+					console.error(error);
+					return "Error creating user.";
+				}
+			},
 		},
 	}),
 });
