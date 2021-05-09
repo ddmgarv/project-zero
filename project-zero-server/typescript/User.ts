@@ -1,6 +1,6 @@
 export interface User {
 	id: string;
-  email: string;
+	email: string;
 	data: {
 		age: number;
 		direction: string;
@@ -16,10 +16,12 @@ export interface User {
 	};
 }
 
-export interface UserCredentials {
-  uid: string;
-  email: string;
-  password: string;
+export interface CreateUser extends User {
+	password: string;
+	confirmPassword: string;
 }
 
-export type SignUpCredentials = Pick<UserCredentials, "email" | "password">
+export interface SignUpCredentials {
+	email: string;
+	password: string;
+}

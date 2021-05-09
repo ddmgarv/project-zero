@@ -2,7 +2,7 @@ import admin from "firebase-admin";
 import firebase from "firebase/app";
 import firebaseAdminCredentials from "@/config/firebaseAdminCredentials";
 import firebaseCredentials from "@/config/firebaseCredentials";
-import { SignUpCredentials } from "@/typescript/User";
+import { SignUpCredentials, User } from "@/typescript/User";
 
 // Initialize Firebase
 class Firebase {
@@ -23,27 +23,35 @@ class Firebase {
 		this.auth = firebase.auth();
 	}
 
-	async createUser({ email, password }: SignUpCredentials): Promise<void> {
+	async createUser({ email, password }: SignUpCredentials): Promise<firebase.auth.UserCredential | undefined | null> {
 		try {
-			await this.auth.createUserWithEmailAndPassword(email, password);
+			const userCredentials = await this.auth.createUserWithEmailAndPassword(email, password);
+			return userCredentials;
 		} catch (err) {
 			console.error(err);
+			throw err;
 		}
 	}
 
-	async createDocument(path: string, data: any) {
-		try {
-			const ref = this.firestore.doc(path);
-			await ref.set(data, { merge: true });
-		} catch (err) {
-			console.error(err);
+	async createUserDocument(userCredential: firebase.auth.UserCredential | null | undefined, data: User) {
+		const uid = userCredential?.user?.uid;
+		if (uid) {
+			try {
+				const ref = this.firestore.doc(`users/${uid}`);
+				await ref.set(data);
+				return true;
+			} catch (err) {
+				console.error(err);
+				throw err;
+			}
+		} else {
+			return false;
 		}
-		return true;
 	}
 
-	async updateDocument(path: string, data: any) {
+	async updateUserDocument(id: string, data: Partial<User>) {
 		try {
-			await this.firestore.doc(path).update(data);
+			await this.firestore.doc(`users/${id}`).update(data);
 		} catch (err) {
 			console.error(err);
 		}
