@@ -1,8 +1,8 @@
 import express from "express";
 import { graphqlHTTP } from "express-graphql";
 import dotenv from "dotenv";
+import graphqlConfig from "./graphqlConfig";
 import "colors";
-import graphqlSchema from "./graphqlConfig";
 
 dotenv.config();
 
@@ -15,7 +15,7 @@ app.use("/", require("/firebase"));
 app.use(
 	"/graphql",
 	graphqlHTTP({
-		schema: graphqlSchema,
+		...graphqlConfig,
 		graphiql: true,
 	})
 );
