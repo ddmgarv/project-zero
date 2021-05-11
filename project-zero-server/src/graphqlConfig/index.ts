@@ -1,6 +1,6 @@
 import { buildSchema } from "graphql";
-import Firebase from "@/services/firebase";
-import { CreateUser } from "@/typescript/User";
+import Firebase from "../services/firebase";
+import { CreateUser } from "../@types/User";
 import * as GraphQLTypes from "./types";
 
 const typesArray = Object.values(GraphQLTypes);

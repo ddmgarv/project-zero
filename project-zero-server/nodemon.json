@@ -1,6 +1,6 @@
 {
-	"watch": ["app.ts"],
+	"watch": ["/src/**/*.ts"],
 	"ext": "ts,json",
-	"ignore": ["./dist"],
-	"exec": "ts-node ./app.ts"
+	"ignore": ["./dist", "./node_modules"],
+	"exec": "ts-node ./src/app.ts"
 }

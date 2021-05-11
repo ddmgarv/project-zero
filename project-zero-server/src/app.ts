@@ -1,10 +1,8 @@
 import express from "express";
 import { graphqlHTTP } from "express-graphql";
-import dotenv from "dotenv";
 import graphqlConfig from "./graphqlConfig";
+import "./config/envConfig";
 import "colors";
-
-dotenv.config();
 
 const app = express();
 
