@@ -1,14 +1,12 @@
 import express from "express";
 import { graphqlHTTP } from "express-graphql";
 import graphqlConfig from "./graphqlConfig";
-import "./config/envConfig";
 import "colors";
 
 const app = express();
 
 const port = process.env.PORT || 8080;
-
-// app.use("/", require("/firebase"));
+console.log(process.env);
 
 app.use(
 	"/graphql",

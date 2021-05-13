@@ -3,6 +3,10 @@ import firebase from "firebase/app";
 import { firebaseCredentials, firebaseAdminCredentials } from "../config";
 import { SignUpCredentials, User } from "../@types/User";
 
+type UserCredential = firebase.auth.UserCredential | undefined | null;
+
+console.log(process.env);
+
 // Initialize Firebase
 class Firebase {
 	private adminAuth: admin.auth.Auth;
@@ -22,7 +26,7 @@ class Firebase {
 		this.auth = firebase.auth();
 	}
 
-	async createUser({ email, password }: SignUpCredentials): Promise<firebase.auth.UserCredential | undefined | null> {
+	async createUser({ email, password }: SignUpCredentials): Promise<UserCredential> {
 		try {
 			const userCredentials = await this.auth.createUserWithEmailAndPassword(email, password);
 			return userCredentials;
@@ -32,7 +36,7 @@ class Firebase {
 		}
 	}
 
-	async createUserDocument(userCredential: firebase.auth.UserCredential | null | undefined, data: User) {
+	async createUserDocument(userCredential: UserCredential, data: User) {
 		const uid = userCredential?.user?.uid;
 		if (uid) {
 			try {
@@ -70,6 +74,4 @@ class Firebase {
 	}
 }
 
-const instance = Firebase.instance;
-
-export default instance;
+export default Firebase.instance;

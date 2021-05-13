@@ -13,7 +13,8 @@ const UseProvider: React.FC = ({ children }) => {
 		<UserContext.Provider
 			value={{
 				id: "",
-				data: {
+        email: "",
+        data: {
 					age: 0,
 					direction: "",
 					country: "",
