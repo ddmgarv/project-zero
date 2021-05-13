@@ -8,7 +8,7 @@ const app = express();
 
 const port = process.env.PORT || 8080;
 
-app.use("/", require("/firebase"));
+// app.use("/", require("/firebase"));
 
 app.use(
 	"/graphql",
