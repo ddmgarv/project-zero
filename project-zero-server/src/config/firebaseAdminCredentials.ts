@@ -11,4 +11,4 @@ const credentials = {
 	client_x509_cert_url: process.env.CLIENT_X509_CERT_URL,
 };
 
-export default JSON.stringify(credentials);
+export default JSON.parse(JSON.stringify(credentials));

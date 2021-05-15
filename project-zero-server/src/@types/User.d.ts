@@ -1,3 +1,5 @@
+import firebase from "firebase";
+
 export interface User {
 	id: string;
 	email: string;
@@ -25,3 +27,5 @@ export interface SignUpCredentials {
 	email: string;
 	password: string;
 }
+
+export type UserCredential = firebase.auth.UserCredential | undefined | null;

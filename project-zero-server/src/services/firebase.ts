@@ -1,11 +1,7 @@
 import admin from "firebase-admin";
-import firebase from "firebase/app";
+import firebase from "firebase";
 import { firebaseCredentials, firebaseAdminCredentials } from "../config";
-import { SignUpCredentials, User } from "../@types/User";
-
-type UserCredential = firebase.auth.UserCredential | undefined | null;
-
-console.log(process.env);
+import { SignUpCredentials, User, UserCredential } from "../@types/User";
 
 // Initialize Firebase
 class Firebase {

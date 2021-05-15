@@ -1,6 +1,6 @@
 import express from "express";
 import { graphqlHTTP } from "express-graphql";
-import graphqlConfig from "./graphqlConfig";
+import graphqlConfig from "./graphql";
 import "colors";
 
 const app = express();

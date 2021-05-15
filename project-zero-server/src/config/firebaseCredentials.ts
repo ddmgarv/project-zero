@@ -8,4 +8,4 @@ const credentials = {
 	measurementId: process.env.MEASUREMENTID,
 };
 
-export default JSON.stringify(credentials);
+export default credentials;
