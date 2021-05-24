@@ -1,7 +1,7 @@
 export const ChatType = `
   type ChatType { 
     id: ID!
-    dateCreated: String!
+    dateCreated: Date!
     chats: [MessageType!]
     senders: [UserType!]
   }

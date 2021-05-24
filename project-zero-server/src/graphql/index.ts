@@ -1,15 +1,16 @@
 import { buildSchema } from "graphql";
 import Firebase from "../services/firebase";
-import { CreateUser } from "../@types/User";
+import { CreateUserFields } from "../@types/User";
 import * as GraphQLTypes from "./types";
+import * as GraphQLResolvers from "./resolvers";
 
 const typesArray = Object.values(GraphQLTypes);
 
 // Construct a schema, using GraphQL schema language.
 const schema = buildSchema(typesArray.join("\n"));
-console.log(schema);
+
 const root = {
-    createUser: async (args: CreateUser) => {
+    createUser: async (args: CreateUserFields) => {
         const { email, password, confirmPassword, ...otherProps } = args;
         try {
             if (!email || !password) throw "Email is empty.";
@@ -27,4 +28,5 @@ const root = {
 export default {
     schema,
     root,
+    resolvers: GraphQLResolvers,
 };

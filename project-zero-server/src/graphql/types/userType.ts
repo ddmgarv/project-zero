@@ -1,6 +1,6 @@
 export const UserDataType = `
   type UserDataType {
-    dateOfBirth: String!
+    dateOfBirth: Date!
     direction: String!
     country: String!
     firstName: String!
@@ -18,6 +18,8 @@ export const UserStatusType = `
 `;
 
 export const UserType = `
+  scalar Date
+
   type UserType {	
     id: ID!
     email: String!

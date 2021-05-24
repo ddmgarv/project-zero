@@ -3,7 +3,7 @@ export const MessageType = `
     id: ID!
     message: String!
     status: String!
-    date: String!
+    date: Date!
     sender: UserType
   }
 `;
