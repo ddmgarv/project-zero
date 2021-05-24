@@ -15,4 +15,4 @@ app.use(
     })
 );
 
-app.listen(port, () => console.log("Server running in port:".green, port));
+app.listen(port, () => console.log("Running GraphQL server in port:".green, port));

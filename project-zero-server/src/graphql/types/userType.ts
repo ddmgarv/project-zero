@@ -1,6 +1,6 @@
 export const UserDataType = `
   type UserDataType {
-    age: Int!
+    dateOfBirth: String!
     direction: String!
     country: String!
     firstName: String!
@@ -19,7 +19,7 @@ export const UserStatusType = `
 
 export const UserType = `
   type UserType {	
-    id: String!
+    id: ID!
     email: String!
     data: UserDataType
     status: UserStatusType
@@ -28,10 +28,6 @@ export const UserType = `
 
 export const CreateUser = `
   type Query {
-    createUser(
-      email: String!, 
-      password: String!, 
-      confirmPassword: String!
-    ): UserType
+    createUser(data: UserType): UserType
   }
 `;

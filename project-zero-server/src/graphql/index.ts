@@ -16,7 +16,7 @@ const root = {
             if (confirmPassword !== password) throw "Passwords doesn't match.";
             const userCredentials = await Firebase.createUser({ email, password });
             await Firebase.createUserDocument(userCredentials, { email, ...otherProps });
-            return "User created";
+            return true;
         } catch (error) {
             console.error(error);
             throw error;

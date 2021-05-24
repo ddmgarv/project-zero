@@ -1,6 +1,6 @@
 export const MessageType = `
   type MessageType {
-    id: String!
+    id: ID!
     message: String!
     status: String!
     date: String!
