@@ -1,20 +1,28 @@
-export const User = `
-  type User {	
-    id: String!;
-    email: String!;
-    data: {
-      age: Int!;
-      direction: String!;
-      country: String!;
-      firstName: String!;
-      lastName: String!;
-      fullName: String!;
-    };
-    status: {
-      disabled: Boolean!;
-      active: Boolean!;
-      lastConnection: String!;
-    }
+export const UserDataType = `
+  type UserDataType {
+    age: Int!
+    direction: String!
+    country: String!
+    firstName: String!
+    lastName: String!
+    fullName: String!
+  }
+`;
+
+export const UserStatusType = `
+  type UserStatusType {
+    disabled: Boolean!
+    active: Boolean!
+    lastConnection: String!
+  }
+`;
+
+export const UserType = `
+  type UserType {	
+    id: String!
+    email: String!
+    data: UserDataType
+    status: UserStatusType
   }
 `;
 
@@ -24,6 +32,6 @@ export const CreateUser = `
       email: String!, 
       password: String!, 
       confirmPassword: String!
-    ): User
+    ): UserType
   }
 `;

@@ -7,24 +7,24 @@ const typesArray = Object.values(GraphQLTypes);
 
 // Construct a schema, using GraphQL schema language.
 const schema = buildSchema(typesArray.join("\n"));
-
+console.log(schema);
 const root = {
-	createUser: async (args: CreateUser) => {
-		const { email, password, confirmPassword, ...otherProps } = args;
-		try {
-			if (!email || !password) throw "Email is empty.";
-			if (confirmPassword !== password) throw "Passwords doesn't match.";
-			const userCredentials = await Firebase.createUser({ email, password });
-			await Firebase.createUserDocument(userCredentials, { email, ...otherProps });
-			return "User created";
-		} catch (error) {
-			console.error(error);
-			throw error;
-		}
-	},
+    createUser: async (args: CreateUser) => {
+        const { email, password, confirmPassword, ...otherProps } = args;
+        try {
+            if (!email || !password) throw "Email is empty.";
+            if (confirmPassword !== password) throw "Passwords doesn't match.";
+            const userCredentials = await Firebase.createUser({ email, password });
+            await Firebase.createUserDocument(userCredentials, { email, ...otherProps });
+            return "User created";
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
+    },
 };
 
 export default {
-	schema,
-	root,
+    schema,
+    root,
 };
