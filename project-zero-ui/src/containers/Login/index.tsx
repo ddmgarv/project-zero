@@ -22,14 +22,12 @@ const Login: React.FC = () => {
 		try {
 			await Firebase.auth.signInWithEmailAndPassword(email, password);
 			setLoginData(loginInitState);
-		} catch (error) {
+		} catch (error: any) {
 			console.error(error);
-			const errorCode = error.code;
-			const errorMessage = error.message;
-			if (errorCode === "auth/wrong-password") {
+			if (error.code === "auth/wrong-password") {
 				alert("Wrong password.");
 			} else {
-				alert(errorMessage);
+				alert(error.message);
 			}
 		}
 	};

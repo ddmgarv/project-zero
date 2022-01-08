@@ -5,7 +5,7 @@ export interface User {
 	email: string;
 	data: {
 		age: number;
-		direction: string;
+		address: string;
 		country: string;
 		firstName: string;
 		lastName: string;
@@ -23,7 +23,7 @@ export const UserContext = createContext<User>({
 	email: "",
 	data: {
 		age: 0,
-		direction: "",
+		address: "",
 		country: "",
 		firstName: "",
 		lastName: "",

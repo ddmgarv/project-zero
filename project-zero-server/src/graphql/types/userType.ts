@@ -1,7 +1,7 @@
 export const UserDataType = `
   type UserDataType {
     dateOfBirth: Date!
-    direction: String!
+    address: String!
     country: String!
     firstName: String!
     lastName: String!

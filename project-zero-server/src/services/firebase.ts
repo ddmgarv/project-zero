@@ -1,7 +1,8 @@
-import admin from "firebase-admin";
+import admin, { ServiceAccount } from "firebase-admin";
 import firebase from "firebase";
-import { firebaseCredentials, firebaseAdminCredentials } from "../config";
-import { SignUpCredentials, User, UserCredential } from "../@types/User";
+import { firebaseCredentials } from "../config";
+import { SignUpCredentials, User, UserCredential } from "../interfaces/User";
+import fbCredentials from "../serviceAccountKey.json";
 
 // Initialize Firebase
 class Firebase {
@@ -14,7 +15,7 @@ class Firebase {
 
 	constructor() {
 		admin.initializeApp({
-			credential: admin.credential.cert(firebaseAdminCredentials),
+			credential: admin.credential.cert(fbCredentials as ServiceAccount),
 		});
 		firebase.initializeApp(firebaseCredentials);
 		this.adminAuth = admin.auth();
