@@ -7,9 +7,10 @@
 /project-zero-ui/build
 /project-zero-server/dist
 
-# dotenv environment variables file
+# dotenv environment/config variables file
 /project-zero-ui/*.env
 /project-zero-server/*.env
+/project-zero-server/src/serviceAccountKey.json
 
 # Logs
 /project-zero-ui/logs
