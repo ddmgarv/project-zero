@@ -1,4 +1,4 @@
-export default [
+export const signupFields = [
 	{
 		id: "email",
 		name: "email",

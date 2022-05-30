@@ -3,7 +3,7 @@ import { Login } from "../containers/Login";
 import { Signup } from "../containers/Signup";
 import { ProtectedRoute } from "./ProtectedRoute";
 
-export const RoutesContainer = () => {
+const RoutesContainer = () => {
 	return (
 		<BrowserRouter>
 			<Routes>
@@ -14,3 +14,5 @@ export const RoutesContainer = () => {
 		</BrowserRouter>
 	);
 };
+
+export default RoutesContainer;

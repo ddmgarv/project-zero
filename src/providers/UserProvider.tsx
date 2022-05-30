@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { UserContext } from "@/contexts";
 
-const UseProvider = ({ children }: { children: JSX.Element }) => {
+export const UserProvider = ({ children }: { children: JSX.Element }) => {
 	// const [userData, setUserData] = useState<User | undefined>(undefined);
 	// const [isLoading, setIsLoading] = useState(true);
 
@@ -32,5 +32,3 @@ const UseProvider = ({ children }: { children: JSX.Element }) => {
 		</UserContext.Provider>
 	);
 };
-
-export default UseProvider;

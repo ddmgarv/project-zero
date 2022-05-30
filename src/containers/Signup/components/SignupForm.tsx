@@ -3,19 +3,19 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { ButtonPrimary, ButtonSecondary } from "@/components/buttons";
 import { TextField } from "@/components/inputs";
-import signUpFields from "../fields";
+import { signupFields } from "../fields";
 
-interface SignupForm {
+interface SignupFormProps {
 	handleSubmit: (e: React.SyntheticEvent<HTMLFormElement>) => void;
 	handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const SignupForm = ({ handleSubmit, handleChange }: SignupForm) => {
+const SignupForm = ({ handleSubmit, handleChange }: SignupFormProps) => {
 	const navigate = useNavigate();
 	return (
 		<Form onSubmit={handleSubmit}>
-			{signUpFields.map((field) => (
-				<Container>
+			{signupFields.map((field) => (
+				<Container key={field.id}>
 					<TextField {...field} onChange={handleChange} />
 				</Container>
 			))}

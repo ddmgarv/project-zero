@@ -3,20 +3,20 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { ButtonPrimary, ButtonSecondary } from "@/components/buttons";
 import { TextField } from "@/components/inputs";
-import loginFields from "../fields";
+import { loginFields } from "../fields";
 
-interface LoginForm {
+interface LoginFormProps {
 	handleSubmit: (e: React.SyntheticEvent<HTMLFormElement>) => void;
 	handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const LoginForm = ({ handleSubmit, handleChange }: LoginForm) => {
+const LoginForm = ({ handleSubmit, handleChange }: LoginFormProps) => {
 	const navigate = useNavigate();
 
 	return (
 		<Form onSubmit={handleSubmit}>
 			{loginFields.map((field) => (
-				<Container>
+				<Container key={field.id}>
 					<TextField {...field} onChange={handleChange} />
 				</Container>
 			))}

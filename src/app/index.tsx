@@ -1,10 +1,10 @@
-import { RoutesContainer } from "@/routes";
-import UseProvider from "@/providers/UserProvider";
+import RoutesContainer from "@/routes";
+import { UserProvider } from "@/providers/UserProvider";
 
 const App = () => (
-	<UseProvider>
+	<UserProvider>
 		<RoutesContainer />
-	</UseProvider>
+	</UserProvider>
 );
 
 export default App;
